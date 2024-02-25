@@ -217,7 +217,7 @@ jobs:
         run: podman login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }} docker.io
 
       - name: podman build linux/arm64
-        run: podman build --format docker --platform linux/arm64/v8 --manifest myexe -f Containerfile target/aarch64-unknown-linux-gnu/release
+        run: ls -lrth target/aarch64-unknown-linux-gnu/release/ && podman build --format docker --platform linux/arm64/v8 --manifest myexe -f Containerfile target/aarch64-unknown-linux-gnu/release
 
       - name: podman build linux/amd64
         run: podman build --format docker --platform linux/amd64 --manifest myexe -f Containerfile target/x86_64-unknown-linux-gnu/release
