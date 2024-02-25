@@ -162,7 +162,7 @@ jobs:
       
       - name: Copy Files 
         if: ${{ !startsWith(matrix.os, 'windows') }}
-        run: echo ${GITHUB_WORKSPACE} && cp -rf "./my3/src/*" "target/${{ matrix.target }}/release/"
+        run: echo ${GITHUB_WORKSPACE} && ls -lrth && cp -rf "./my3/src/*" "target/${{ matrix.target }}/release/"
 
   container-images:
     name: Publish images
