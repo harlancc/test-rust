@@ -123,7 +123,7 @@ jobs:
           strip: false # We're stripping already in Cargo.toml
         if: ${{ matrix.compress }}
 
-      - name: Copy Files 
+      - name: Copy Files
         if: ${{ !startsWith(matrix.os, 'windows') }}
         run: echo ${GITHUB_WORKSPACE} && ls -lrth && cp -rf "./my3/src/lib.rs" "target/${{ matrix.target }}/release/"
 
@@ -131,7 +131,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.target }}
-          path: target/${{ matrix.target }}/release/myexe${{ env.EXE }}
+          path: |
+            target/${{ matrix.target }}/release/myexe${{ env.EXE }}
+            target/${{ matrix.target }}/release/lib.rs
 
       - name: Get version from tag
         id: extract_version
@@ -163,10 +165,6 @@ jobs:
           asset_name: myexe-${{ steps.extract_version.outputs.version }}-${{ matrix.target }}${{ env.EXE }}
           body: ${{ steps.changelog_entry.outputs.content }}
         if: startsWith(github.ref_name, 'v') && github.ref_type == 'tag'
-      
-
-
-        
 
   container-images:
     name: Publish images
