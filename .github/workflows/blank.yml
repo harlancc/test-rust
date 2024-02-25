@@ -123,6 +123,10 @@ jobs:
           strip: false # We're stripping already in Cargo.toml
         if: ${{ matrix.compress }}
 
+      - name: Copy Files 
+        if: ${{ !startsWith(matrix.os, 'windows') }}
+        run: echo ${GITHUB_WORKSPACE} && ls -lrth && cp -rf "./my3/src/lib.rs" "target/${{ matrix.target }}/release/"
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -160,9 +164,7 @@ jobs:
           body: ${{ steps.changelog_entry.outputs.content }}
         if: startsWith(github.ref_name, 'v') && github.ref_type == 'tag'
       
-      - name: Copy Files 
-        if: ${{ !startsWith(matrix.os, 'windows') }}
-        run: echo ${GITHUB_WORKSPACE} && ls -lrth && cp -rf "./my3/src/lib.rs" "target/${{ matrix.target }}/release/"
+
 
         
 
