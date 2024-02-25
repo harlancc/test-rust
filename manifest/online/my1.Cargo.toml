@@ -1,0 +1,10 @@
+[package]
+name = "my1"
+version = "0.1.5"
+edition = "2021"
+description = "My1"
+license = "MIT"
+repository = "https://github.com/harlanc/test-rust-release"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

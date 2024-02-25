@@ -1,0 +1,23 @@
+[package]
+name = "myexe"
+version = "0.1.4"
+edition = "2021"
+
+description = "Myexe"
+license = "MIT"
+repository = "https://github.com/harlanc/test-rust-release"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+#my3 = "0.1.0" #{ path = "../my3/" }
+my3 = { path = "../my3/" }
+anyhow = "^1.0"
+
+[dependencies.tokio]
+version = "1.26.0"
+default-features = false
+#features = ["rt-core", "rt-threaded", "macros", "time","sync"]
+features = ["full"]
+

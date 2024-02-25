@@ -1,0 +1,12 @@
+[package]
+name = "my3"
+version = "0.1.1"
+edition = "2021"
+description = "My3"
+license = "MIT"
+repository = "https://github.com/harlanc/test-rust-release"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#my2 = "0.1.1" # { path = "../my2/" }
+my2 = { path = "../my2/" }

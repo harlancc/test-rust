@@ -1,0 +1,11 @@
+[workspace]
+resolver = "1"
+members = [
+ "myexe",
+
+
+  "my3",
+    "my2",
+    "my1",
+
+]
